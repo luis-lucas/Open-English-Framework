@@ -4,52 +4,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open English Framework</title>
+    <!-- Google Fonts: Inter for general text, Libertinus Mono if specifically desired for certain elements -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libertinus+Mono&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libertinus+Mono&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN - Essential for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <section class="hero-section">
-    <img src="./images/Simple Colourful Before and After Color Grade.jpg" alt="Teens Learning" class="hero-image">
-    <div class="hero-content">
-        <h1>¡Bienvenido a Open English Framework!</h1>
-        <p>Tu camino hacia la fluidez en inglés, 100% gratis.</p>
-        <a href="#signup" class="cta-button">Empieza a Aprender Ahora</a>
-    </div>
-</section>
-<section class="line"></section>
 
-<section class="parallax-section">
-    <div class="parallax-item parallax-item-1">
-        <div class="parallax-content">
-            <h2>El Poder de la Adquisición Natural</h2>
-            <p>Imagina aprender inglés tal como aprendiste tu primer idioma: sin esfuerzo, con alegría y de forma efectiva. Nuestro método **100% Gratuito** te guía a través de un proceso de adquisición natural del lenguaje, muy parecido a cómo los niños se vuelven hablantes fluidos sin siquiera darse cuenta de que están "estudiando". No se trata de memorizar reglas interminables; se trata de conectar con el idioma de una manera significativa e intuitiva. Prepárate para un viaje bien estructurado que simplemente funciona.</p>
+ <!-- Navigation Bar - Placed after parallax as requested -->
+    <nav class="bg-gray-800 p-4 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo/Brand Name -->
+            <a href="#" class="text-white text-2xl font-bold rounded-md px-3 py-2 hover:bg-gray-700 transition duration-300">Open English Framework</a>
+
+            <!-- Mobile Menu Button (Hamburger icon for small screens) -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none focus:text-white p-2 rounded-md transition duration-300">
+                    <div class="hamburger-line w-6 h-0.5 bg-gray-300 my-1"></div>
+                    <div class="hamburger-line w-6 h-0.5 bg-gray-300 my-1"></div>
+                    <div class="hamburger-line w-6 h-0.5 bg-gray-300 my-1"></div>
+                </button>
+            </div>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="text-gray-300 hover:text-white navbar-link text-lg font-semibold">Sobre Nosotros</a>
+                <a href="#method" class="text-gray-300 hover:text-white navbar-link text-lg font-semibold">Nuestro Método</a>
+                <a href="#courses" class="text-gray-300 hover:text-white navbar-link text-lg font-semibold">Cursos Gratuitos</a>
+                <a href="#contact" class="text-gray-300 hover:text-white navbar-link text-lg font-semibold">Contacto</a>
+            </div>
         </div>
-    </div>
-    <section class="line"></section>
-    <div class="parallax-item parallax-item-2">
-        <div class="parallax-content">
-            <h2>Sumérgete en Inglés Real</h2>
-            <p>El secreto comienza con el **input comprensible**. Te sumergirás en inglés que puedes entender, incluso mientras aprendes nuevas palabras y frases. Utilizamos historias atractivas, escenarios de la vida real y elementos visuales claros para dar vida al idioma. Al escuchar y ver inglés constantemente en contexto, tu cerebro comienza a hacer conexiones de forma natural, construyendo tu comprensión pieza por pieza, al igual que un hablante nativo aprende.</p>
+
+        <!-- Mobile Navigation Links (Hidden by default, shown by JS) -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+            <a href="#about" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Sobre Nosotros</a>
+            <a href="#method" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Nuestro Método</a>
+            <a href="#courses" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Cursos Gratuitos</a>
+            <a href="#contact" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Contacto</a>
         </div>
-    </div>
-    <section class="line"></section>
-    <div class="parallax-item parallax-item-3">
-        <div class="parallax-content">
-            <h2>Habla con Confianza Desde el Primer Día</h2>
-            <p>Creemos que hablar es la forma más rápida de alcanzar la fluidez. Nuestras lecciones **bien estructuradas** te brindan oportunidades constantes para practicar la expresión. ¡No te preocupes por la perfección; cometer errores es una parte crucial del aprendizaje! Interactuarás activamente con el idioma, practicando nuevo vocabulario y estructuras en un ambiente de apoyo y libre de juicios. Tu voz importa, y te ayudamos a encontrarla.</p>
+    </nav>
+
+    <!-- Hero Section - The main welcoming area -->
+    <section class="hero-section">
+        <!-- Hero background image -->
+        <img src="./images/Simple Colourful Before and After Color Grade.jpg" alt="Teens Learning English Together" class="hero-image">
+        <div class="hero-content">
+            <!-- Main headline in Spanish -->
+            <h1>¡Bienvenido a Open English Framework!</h1>
+            <!-- Sub-headline highlighting key benefits -->
+            <p>Tu camino hacia la fluidez en inglés, 100% gratis.</p>
+            <!-- Call-to-action button -->
+            <a href="#signup" class="cta-button">Empieza a Aprender Ahora</a>
         </div>
-    </div>
+    </section>
+
+    <!-- Separator line for visual break -->
     <section class="line"></section>
-    <div class="parallax-item parallax-item-4">
-        <div class="parallax-content">
-            <h2>Gramática Sin Esfuerzo, Fluidez Duradera</h2>
-            <p>Olvídate de los aburridos ejercicios de gramática. Con nuestro método, **adquirirás la gramática de forma natural** utilizando el idioma en conversaciones y tareas reales. A medida que hables y comprendas más, los patrones del inglés se volverán intuitivos. Esto lleva a una comprensión más profunda y a un uso más seguro y automático del idioma. Construye una base sólida para una fluidez de por vida, paso a paso y de forma estructurada.</p>
+
+    <!-- Parallax Section - Explains the learning method -->
+    <section class="parallax-section">
+        <!-- Parallax Item 1: Natural Acquisition -->
+        <div class="parallax-item parallax-item-1">
+            <div class="parallax-content">
+                <h2>El Poder de la Adquisición Natural</h2>
+                <p>Imagina aprender inglés tal como aprendiste tu primer idioma: sin esfuerzo, con alegría y de forma efectiva. Nuestro método **100% Gratuito** te guía a través de un proceso de adquisición natural del lenguaje, muy parecido a cómo los niños se vuelven hablantes fluidos sin siquiera darse cuenta de que están "estudiando". No se trata de memorizar reglas interminables; se trata de conectar con el idioma de una manera significativa e intuitiva. Prepárate para un viaje bien estructurado que simplemente funciona.</p>
+            </div>
         </div>
-    </div>
-    <section class="line"></section>
-</section>
-    
+        <section class="line"></section> <!-- Separator between parallax items -->
+
+        <!-- Parallax Item 2: Immerse in Real English -->
+        <div class="parallax-item parallax-item-2">
+            <div class="parallax-content">
+                <h2>Sumérgete en Inglés Real</h2>
+                <p>El secreto comienza con el **input comprensible**. Te sumergirás en inglés que puedes entender, incluso mientras aprendes nuevas palabras y frases. Utilizamos historias atractivas, escenarios de la vida real y elementos visuales claros para dar vida al idioma. Al escuchar y ver inglés constantemente en contexto, tu cerebro comienza a hacer conexiones de forma natural, construyendo tu comprensión pieza por pieza, al igual que un hablante nativo aprende.</p>
+            </div>
+        </div>
+        <section class="line"></section> <!-- Separator between parallax items -->
+
+        <!-- Parallax Item 3: Speak Confidently -->
+        <div class="parallax-item parallax-item-3">
+            <div class="parallax-content">
+                <h2>Habla con Confianza Desde el Primer Día</h2>
+                <p>Creemos que hablar es la forma más rápida de alcanzar la fluidez. Nuestras lecciones **bien estructuradas** te brindan oportunidades constantes para practicar la expresión. ¡No te preocupes por la perfección; cometer errores es una parte crucial del aprendizaje! Interactuarás activamente con el idioma, practicando nuevo vocabulario y estructuras en un ambiente de apoyo y libre de juicios. Tu voz importa, y te ayudamos a encontrarla.</p>
+            </div>
+        </div>
+        <section class="line"></section> <!-- Separator between parallax items -->
+
+        <!-- Parallax Item 4: Effortless Grammar -->
+        <div class="parallax-item parallax-item-4">
+            <div class="parallax-content">
+                <h2>Gramática Sin Esfuerzo, Fluidez Duradera</h2>
+                <p>Olvídate de los aburridos ejercicios de gramática. Con nuestro método, **adquirirás la gramática de forma natural** utilizando el idioma en conversaciones y tareas reales. A medida que hables y comprendas más, los patrones del inglés se volverán intuitivos. Esto lleva a una comprensión más profunda y a un uso más seguro y automático del idioma. Construye una base sólida para una fluidez de por vida, paso a paso y de forma estructurada.</p>
+            </div>
+        </div>
+        <section class="line"></section> <!-- Separator after the last parallax item -->
+    </section>
+
+     <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto flex flex-col items-center justify-center space-y-6">
+            <h3 class="text-3xl font-bold text-center">¡Conéctate con Nosotros!</h3>
+            <div class="flex space-x-6">
+                <!-- Social Media Links with Emojis -->
+                <a href="https://facebook.com/youropenenglishframework" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
+                    <span role="img" aria-label="Facebook Icon">📘</span>
+                </a>
+                <a href="https://twitter.com/youropenenglishframework" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitter">
+                    <span role="img" aria-label="Twitter Icon">🐦</span>
+                </a>
+                <a href="https://instagram.com/youropenenglishframework" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                    <span role="img" aria-label="Instagram Icon">📸</span>
+                </a>
+                <a href="https://linkedin.com/company/youropenenglishframework" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                    <span role="img" aria-label="LinkedIn Icon">💼</span>
+                </a>
+                <a href="mailto:info@youropenenglishframework.com" class="social-icon" aria-label="Email">
+                    <span role="img" aria-label="Email Icon">📧</span>
+                </a>
+            </div>
+            <p class="text-gray-400 text-sm text-center">&copy; 2025 Open English Framework. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Link to your external JavaScript file -->
+    <script src="main.js"></script>
 </body>
 </html>

@@ -1,138 +1,95 @@
+/* Base styles for the entire page */
 body {
-    font-family: "Libertinus Mono", monospace;
+    /* Applying 'Inter' as the primary font for readability */
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
+    /* Prevents horizontal scrolling issues, especially with responsive designs */
+    overflow-x: hidden;
 }
-.line {
-    width: 100%;
-    height: 0.05em;
-    background-color: #ffffff;
-}
-/* --- Base Styles (Desktop First - Applied to all screen sizes initially) --- */
+
+/* Hero Section Styling */
 .hero-section {
-    position: relative;
+    position: relative; /* Crucial for positioning child elements */
     width: 100%;
-    height: 100vh; /* Default height for larger screens */
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    height: 100vh; /* Sets height relative to viewport height */
+    overflow: hidden; /* Ensures content stays within bounds */
+    display: flex; /* Uses flexbox for easy content centering */
+    align-items: center; /* Vertically centers content */
+    justify-content: center; /* Horizontally centers content */
+    text-align: center; /* Centers text within its own block */
+    opacity: 0.7;
 }
 
-/* Optional: Overlay for text readability (Recommended method) */
+/* Semi-transparent overlay for hero image to improve text readability */
 .hero-section::before {
-    content: '';
+    content: ''; /* Required for pseudo-elements */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
-    z-index: 1.5;
+    background-color: rgba(0, 0, 0, 0.5); /* 50% opaque black overlay */
+    z-index: 1.5; /* Placed between image and text */
 }
 
+/* Hero image styling */
 .hero-image {
-    position: absolute;
+    position: absolute; /* Positions relative to .hero-section */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    z-index: 1;
-    opacity: 0.5;
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    z-index: 1; /* Places image behind the overlay */
 }
 
+/* Content (text) within the hero section */
 .hero-content {
-    position: relative;
-    z-index: 2;
-    color: #ffffff;
-    max-width: 800px; /* Limit width for readability on large screens */
+    position: relative; /* Ensures content is above the overlay */
+    z-index: 2; /* Places content above the overlay */
+    color: #ffffff; /* White text for contrast */
+    max-width: 800px; /* Limits text width on large screens for readability */
     padding: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds shadow for better contrast */
 }
 
 .hero-content h1 {
-    font-size: 3em; /* Base font size for large screens */
+    font-size: 3em; /* Large font for impact */
     margin-bottom: 10px;
-   font-family: "Libertinus Mono", monospace;
+    font-family: 'Inter', sans-serif; /* Consistent font for headlines */
 }
 
 .hero-content p {
-    font-size: 1.5em; /* Base font size for large screens */
+    font-size: 1.2em;
     margin-bottom: 20px;
 }
 
+/* Call-to-action button styling */
 .cta-button {
     display: inline-block;
-    background-color: #007bff;
+    background-color: #007bff; /* Blue background */
     color: #ffffff;
     padding: 15px 30px;
     border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.1em; /* Base font size for large screens */
+    text-decoration: none; /* Removes underline */
+    font-size: 1.1em;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
 }
 
 .cta-button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
-/* --- Media Queries for Responsiveness --- */
-
-/* For screens smaller than 768px (e.g., Tablets and smaller laptops) */
-@media (max-width: 768px) {
-    .hero-section {
-        height: 50vh; /* Slightly reduce height */
-    }
-
-    .hero-content {
-        padding: 15px; /* Reduce padding */
-        max-width: 90%; /* Allow content to take more width */
-    }
-
-    .hero-content h1 {
-        font-size: 2.5em; /* Reduce headline font size */
-    }
-
-    .hero-content p {
-        font-size: 1.1em; /* Reduce paragraph font size */
-    }
-
-    .cta-button {
-        padding: 12px 25px; /* Adjust button padding */
-        font-size: 1em; /* Adjust button font size */
-    }
+/* Visual separator line between sections */
+.line {
+    height: 50px; /* Fixed height for the separator */
+    background-color: #f0f0f0; /* Light grey background */
+    width: 100%;
 }
 
-/* For screens smaller than 480px (e.g., Mobile Phones) */
-@media (max-width: 480px) {
-    .hero-section {
-        height: 40vh; /* Further reduce height for mobile */
-        /* Or you can use a fixed pixel height like: height: 300px; */
-    }
-
-    .hero-content {
-        padding: 10px; /* Further reduce padding */
-        /* max-width can remain 90% or adjusted if needed */
-    }
-
-    .hero-content h1 {
-        font-size: 1.8em; /* Significantly reduce headline font size for readability */
-    }
-
-    .hero-content p {
-        font-size: 0.9em; /* Significantly reduce paragraph font size */
-    }
-
-    .cta-button {
-        padding: 10px 20px; /* Smaller button for mobile */
-        font-size: 0.9em;
-    }
-}
-
-/* --- Parallax Section Styling --- */
+/* Parallax Section Styling */
 .parallax-section {
     width: 100%;
     /* No fixed height here, individual items will define height */
@@ -140,12 +97,12 @@ body {
 
 .parallax-item {
     position: relative; /* For overlay and content positioning */
-    min-height: 70vh; /* Make each section tall enough for the parallax effect */
+    min-height: 80vh; /* Ensures each section is tall enough for the parallax effect */
     display: flex;
-    align-items: center; /* Vertically center content */
-    justify-content: center; /* Horizontally center content */
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    color: #fff; /* Default text color for overlay */
+    color: #fff; /* Default text color for content */
 
     /* Parallax Background Properties */
     background-size: cover; /* Ensures image covers the whole area */
@@ -154,42 +111,41 @@ body {
     overflow: hidden; /* Prevents content from spilling out if sizing is off */
 }
 
-/* --- Specific Background Images for Each Parallax Item --- */
+/* Specific Background Images for Each Parallax Item */
 /* IMPORTANT: Replace these placeholder URLs with your actual image paths! */
 .parallax-item-1 {
-    background-image: url('./images/Simple\ Colourful\ Before\ and\ After\ Color\ Grade\ \(1\).jpg'); /* E.g., image of kids playing/learning */
+    background-image: url('./images/Simple\ Colourful\ Before\ and\ After\ Color\ Grade\ \(1\).jpg');
 }
 .parallax-item-2 {
-    background-image: url('./images/3.jpg'); /* E.g., image showing interactive learning or diverse people */
+    background-image: url('./images/3.jpg');
 }
 .parallax-item-3 {
-    background-image: url('./images/4.jpg'); /* E.g., image of students in group discussion or public speaking */
+    background-image: url('./images/4.jpg');
 }
 .parallax-item-4 {
-    background-image: url('./images/5.jpg'); /* E.g., image representing progress, a journey, or a confident smile */
+    background-image: url('./images/5.jpg');
 }
 
-/* --- Overlay for Text Readability (on top of image, under text) --- */
+/* Semi-transparent overlay for parallax images */
 .parallax-item::before {
-    content: ''; /* Required for pseudo-elements */
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent dark overlay for contrast */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay for contrast */
     z-index: 1; /* Places the overlay above the image but below the content */
 }
 
-/* --- Content Styling (Text Box) --- */
+/* Content (text box) within parallax items */
 .parallax-content {
     position: relative; /* Ensures content is layered above the overlay */
     z-index: 2; /* Content is on top */
     max-width: 900px; /* Limits text width for readability on large screens */
     padding: 40px;
-    margin: 0 20px; /* Add horizontal margin to prevent content touching edges */
-    /* Optional: A subtle background behind the text itself */
-    background-color: rgba(0, 0, 0, 0.3);
+    margin: 0 20px; /* Adds horizontal margin to prevent content touching edges */
+    background-color: rgba(0, 0, 0, 0.2); /* Subtle background for text */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
 }
@@ -197,56 +153,198 @@ body {
 .parallax-content h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
-    font-family: "Libertinus Mono", monospace; /* Your chosen font */
+    font-family: 'Inter', sans-serif; /* Consistent font for headlines */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds pop to text */
 }
 
 .parallax-content p {
-    font-size: 1.2em;
-    line-height: 1.6; /* Improves readability */
+    font-size: 1.5em;
+    line-height: 1.6; /* Improves readability of body text */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* --- Responsive Adjustments for Parallax Section --- */
+/* --- Responsive Adjustments (Media Queries) --- */
 
-/* For screens smaller than 768px (e.g., Tablets and smaller laptops) */
+/* Hero Section Responsive Styles */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 50vh; /* Slightly reduce height for tablets */
+    }
+    .hero-content {
+        padding: 15px;
+        max-width: 90%; /* Allow content to take more width */
+    }
+    .hero-content h1 {
+        font-size: 2.5em; /* Reduce headline font size */
+    }
+    .hero-content p {
+        font-size: 1.1em; /* Reduce paragraph font size */
+    }
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        height: 40vh; /* Further reduce height for mobile */
+    }
+    .hero-content {
+        padding: 10px;
+    }
+    .hero-content h1 {
+        font-size: 1.8em;
+    }
+    .hero-content p {
+        font-size: 0.9em;
+    }
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+/* Parallax Section Responsive Styles */
 @media (max-width: 768px) {
     .parallax-item {
         min-height: 60vh; /* Adjust height for tablets */
         /* IMPORTANT: Disable parallax on mobile for performance/usability */
         background-attachment: scroll;
     }
-
     .parallax-content {
         padding: 30px 20px;
-        max-width: 95%; /* Allow content to take more width */
+        max-width: 95%;
     }
-
     .parallax-content h2 {
-        font-size: 2em; /* Reduce headline font size */
+        font-size: 2em;
     }
-
     .parallax-content p {
-        font-size: 1.5em; /* Reduce paragraph font size */
+        font-size: 1.1em;
     }
 }
 
-/* For screens smaller than 480px (e.g., Mobile Phones) */
 @media (max-width: 480px) {
     .parallax-item {
-        min-height: 50vh; /* Further reduce height for mobile */
+        min-height: 50vh;
     }
-
     .parallax-content {
         padding: 20px 15px;
-        /* max-width can remain 95% or adjusted if needed */
     }
-
     .parallax-content h2 {
-        font-size: 1.6em; /* Significantly reduce headline font size */
+        font-size: 1.6em;
     }
-
     .parallax-content p {
-        font-size: 1em; /* Significantly reduce paragraph font size */
+        font-size: 1em;
     }
+}
+
+/* Custom CSS for Navbar */
+.navbar-link {
+    transition: all 0.2s ease-in-out; /* Smooth transition for hover effects */
+    position: relative; /* Needed for the ::after pseudo-element positioning */
+    padding-bottom: 4px; /* Space for the expanding underline */
+}
+
+.navbar-link:hover {
+    color: #a0aec0; /* Lighter gray text on hover */
+}
+
+/* Underline effect for navbar links on hover */
+.navbar-link::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    width: 0; /* Starts with no width */
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #a0aec0; /* Underline color */
+    transition: width 0.3s ease-in-out; /* Smooth expansion of the underline */
+}
+
+.navbar-link:hover::after {
+    width: 100%; /* Expands to full width on hover */
+}
+
+/* Hamburger icon animation for mobile menu */
+.hamburger-line {
+    transition: all 0.3s ease-in-out; /* Smooth transition for lines */
+}
+
+/* Transforms the hamburger lines into an 'X' when active */
+.hamburger-active .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-active .hamburger-line:nth-child(2) {
+    opacity: 0; /* Hides the middle line */
+}
+
+.hamburger-active .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Footer Specific Styles */
+.social-icon {
+    display: inline-flex; /* Use flex for centering icon */
+    align-items: center;
+    justify-content: center;
+    width: 48px; /* Fixed width for circular background */
+    height: 48px; /* Fixed height for circular background */
+    background-color: #4a5568; /* Darker grey background for icons */
+    color: #ffffff; /* White icon color */
+    border-radius: 50%; /* Makes the background circular */
+    font-size: 1.5em; /* Larger icon size */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+    position: relative; /* Crucial for tooltip positioning */
+}
+
+.social-icon:hover {
+    background-color: #636e72; /* Lighter grey on hover */
+    transform: translateY(-3px); /* Slight lift effect on hover */
+}
+
+/* Tooltip styles for social icons */
+.social-icon::before {
+    content: attr(data-tooltip); /* Gets content from data-tooltip attribute */
+    position: absolute;
+    bottom: 100%; /* Position above the icon */
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px); /* Center horizontally and add slight space */
+    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 0.8em; /* Smaller font for tooltip */
+    white-space: nowrap; /* Prevents text from wrapping */
+    opacity: 0; /* Hidden by default */
+    visibility: hidden; /* Hidden by default */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease; /* Smooth fade and slight move */
+    z-index: 100; /* Ensure tooltip is on top of other content */
+}
+
+/* Tooltip arrow (optional, but nice touch) */
+.social-icon::after {
+    content: '';
+    position: absolute;
+    bottom: 100%; /* Position above the icon, below the tooltip text */
+    left: 50%;
+    transform: translateX(-50%) translateY(5px); /* Position below the text, slightly offset */
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid rgba(0, 0, 0, 0.7); /* Matches tooltip background color */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 99; /* Below tooltip text */
+}
+
+/* Show tooltip on hover */
+.social-icon:hover::before,
+.social-icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px); /* Move up slightly on hover */
 }
